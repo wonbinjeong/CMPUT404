@@ -45,11 +45,36 @@ module.exports.getAuthor = async(req, res, next) => {
             "love": 1,
             "rocket": 0
         },
-        "comments": [{
-            "username": "dummy_username",
-            "message": "Awesome!"
-        }]
-    }]
+        "comments": [
+            {
+                "username": "dummy_username",
+                "message": "Awesome!"
+            }
+        ]
+    }, {
+        "postID": "d1faf016-a31d-4e09-a9b7-6d4aa9d1050b",
+        "title": "number 3",
+        "content": "hello",
+        "tags": [
+            "1",
+            "2",
+            
+        ],
+        "reaction": {
+            "like": 100,
+            "love": 52,
+            "rocket": 250
+        },
+        "comments": [
+            {
+                "username": "dummy_username",
+                "message": "Awesome!",
+                "username": "CoolDude",
+                "message": "Wicked Bro",
+            }
+        ]
+    } 
+]
     res.status(200).json(exampleJson)
 }
 

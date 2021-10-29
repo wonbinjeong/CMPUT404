@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { CreatePostModal } from '../components/CreatePostModal';
+import { PostFeed } from '../components/PostFeed';
 import { Link } from 'react-router-dom'
 
 export const MainScreen = () => {
@@ -77,15 +78,11 @@ export const MainScreen = () => {
         fetchPosts();
     }
 
-    const reactionClickHandler = async (postID, reactionType) => {
-        alert("Reaction Clicked!")
-        fetchPosts();
-    }
     
     return(
         <>
-        <Link to="/Friend">
-            <button className="btn btn-md btn-secondary">Go to Friend</button>
+        <Link to="/Friends">
+            <button className="btn btn-md btn-secondary" href="/Friends">Go to Friends</button>
         </Link>
         <Link to="/Post">
             <button className="btn btn-md btn-secondary" href="/Post">Go to Post</button>
@@ -98,6 +95,7 @@ export const MainScreen = () => {
         <CreatePostModal isVisible={showModal} setVisible={setShowModal} submitPostHandler={createNewPostHandler}></CreatePostModal>
         <div className="text-center my-5" style={{backgroundColor: "rgb(21,32,43)"}}>
             <button className="btn btn-primary btn-lg w-50" style={{backgroundColor: "rgb(255,122,0)"}} onClick={() => setShowModal(true)}>Create New Post</button>
+            <PostFeed></PostFeed>
             {posts.map((post, i) => 
             <div className=" w-50 mt-3 mx-auto border p-4 rounded-5 z-depth-2 text-white"
             style={{backgroundColor: "rgb(30,47,65)"}} key={"post"+i}>
